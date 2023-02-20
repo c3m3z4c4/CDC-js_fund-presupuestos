@@ -20,7 +20,6 @@ const totalIngresos = () => {
 
   let totalIngresos = 0;
   for (let i = 0; i < ingresos.length; i++) {
-    // totalIngresos  = totalIngresos + ingresos[i].valor.ammount;
     totalIngresos  = totalIngresos + ingresos[i].valor;
     
   }
@@ -30,7 +29,6 @@ const totalIngresos = () => {
 const totalEgresos = () => {
   let totalEgresos = 0;
   for (let i = 0; i < egresos.length; i++) {
-    // totalEgresos  = totalEgresos + egresos[i].valor.ammount;
     totalEgresos  = totalEgresos + egresos[i].valor;
     
   }
