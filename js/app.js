@@ -1,15 +1,20 @@
 let presupuesto = 20000;
 let porcentajeEgreso = 0.25
 
-let egresos = [
-  {desc:'Renta', ammount:900},
-  {desc:'Ropa', ammount:400}
-];
+// let egresos = [
+//   {desc:'Renta', ammount:900},
+//   {desc:'Ropa', ammount:400}
+// ];
 
-  let ingresos = [
-    { desc:'Quincena', ammount:9000},
-    {desc:'Venta', ammount:400}
-  ];
+//   let ingresos = [
+//     { desc:'Quincena', ammount:9000},
+//     {desc:'Venta', ammount:400}
+//   ];
+
+let ingresos =  [new Ingreso("Salario", 20000),new Ingreso("Venta auto",
+  50000)]
+let egresos =  new Array(new Egreso("Renta", 4000),new Egreso("Ropa",
+  600))
 
 const totalIngresos = () => {
 
