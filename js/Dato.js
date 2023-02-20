@@ -10,7 +10,7 @@ class Dato{
         }
 
         //Setters
-        set setDescripcion(descripcion){
+        set descripcion(descripcion){
           this._descripcion = descripcion;
         }
   
@@ -20,7 +20,7 @@ class Dato{
         }
 
         //Setters
-        set setValor(valor){
+        set valor(valor){
           this._valor = valor;
         }
   
