@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="./css/estilos.css">
   
 </head>
-<body>
+<body onload="cargarApp()">
   <div class="cabecero">
     <div class="presupuesto">
       <div class="presupuesto_titulo">
@@ -33,7 +33,7 @@
           <h2>Egresos</h2>
         </div>
         <div class="derecha">
-          <div id="egreso" class="presupuesto_egreso—valor">
+          <div id="egresos" class="presupuesto_egreso—valor">
             -1,900.00
           </div>
           <div id="porcentaje" class="presupuesto_egreso--porcentaje"> </div>
@@ -42,16 +42,16 @@
     </div>
 
   </div>
-  <form action="" id="forma">
+  <form id="forma" onsubmit="return false">
     <div class="agregar">
       <div class="agregar_contenedor">
         <select name="" class="agregar_tipo" id="tipo">
           <option value="ingreso" selected>+</option>
           <option value="egreso">-</option>
         </select>
-        <input type="text" class="agregar_descripcion" id="description" placeholder="Agregar descripcion">
-        <input type="number" value="valor" class="agregar_valor" step="any">
-        <button class="agregar_btn"> <ion-icon name="checkmark-circle-outline"></ion-icon></button>
+        <input type="text" class="agregar_descripcion" id="descripcion" placeholder="Agregar descripcion">
+        <input type="number" id="valor" class="agregar_valor" step="any">
+        <button class="agregar-btn" onclick="agregarDato()"> <ion-icon name="checkmark-circle-outline"></ion-icon></button>
       </div>
     </div>
   </form>
