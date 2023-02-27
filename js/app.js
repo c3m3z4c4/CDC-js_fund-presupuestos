@@ -172,18 +172,22 @@ const agregarDato = () => {
   let tipo = document.getElementById('tipo').value;
   let descripcion= document.getElementById('descripcion').value;
   let valor = document.getElementById('valor').value;
-  console.log(tipo, descripcion, valor)
-  if(descripcion!="" && valor!=""){
-      if(tipo='ingreso'){
-        console.log(tipo, descripcion, parseInt(valor, 10))
+  console.log(tipo)
+  if(descripcion!=" " && valor!=0){
+    console.log(tipo)
+      if(tipo=='ingreso'){
+        console.log(`dentro del ciclo ${tipo}`)
         ingresos.push(new Ingreso(descripcion, parseInt(valor, 10)));
+        cargarCabecero()
+        cargarIngresos()
       }else if(tipo=='egreso'){
         console.log(tipo, descripcion, parseInt(valor, 10))
         egresos.push(new Egreso(descripcion, parseInt(valor, 10)));
+        cargarCabecero()
+        cargarEgresos()
       }
   }
-  cargarCabecero()
-  cargarIngresos()
+
 
 }
 
