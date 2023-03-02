@@ -1,41 +1,10 @@
 
-
-let ingresos =[
-  // {
-  //   id:1,
-  //   descripcion: "Salario",
-  //   valor: 40000
-  // },
-  // {
-  //   id:2,
-  //   descripcion: "Venta Auto",
-  //   valor: 60000
-  // },
-  // {
-  //   id:3,
-  //   descripcion: "Regalias",
-  //   valor: 15000
-  // },
-];
+let ingresos =[];
 
 
-let egresos = [
-  // {
-  //   id:1,
-  //   descripcion: "Renta",
-  //   valor: 8000
-  // },
-  // {
-  //   id:2,
-  //   descripcion: "Ropa",
-  //   valor: 600
-  // },
-  // {
-  //   id:3,
-  //   descripcion: "Luz",
-  //   valor: 1230
-  // },
-];
+let egresos = [];
+
+
 const totalIngresos = () => {
 
   let totalIngresos = 0;
@@ -46,6 +15,7 @@ const totalIngresos = () => {
   return totalIngresos;
 
 }
+
 const totalEgresos = () => {
   let totalEgresos = 0;
   for (let i = 0; i < egresos.length; i++) {
@@ -107,11 +77,10 @@ const crearIngresoHTML = (ingreso) => {
     <div class="derecha limpiarEstilos">
       <div class="elemento_valor">+${ingreso.valor}</div> 
       <div class="elemento_eliminar">
-        <button class="elemento_eliminar--btn" ><ion-icon name="close-circle-outline"></ion-icon></button>
+        <button class="elemento_eliminar--btn" onclick="eliminarIngreso(${ingreso.id})"><ion-icon name="close-circle-outline"></ion-icon></button>
       </div> 
     </div>
   </div>`;
-  //  onclick="${eliminarIngreso(ingreso.id)}"
   return ingresoHTML
 }
 const crearEgresoHTML = (egreso) => {
@@ -120,11 +89,10 @@ const crearEgresoHTML = (egreso) => {
     <div class="derecha limpiarEstilos">
       <div class="elemento_valor">-${egreso.valor}</div> 
       <div class="elemento_eliminar">
-        <button class="elemento_eliminar--btn"><ion-icon name="close-circle-outline" ></ion-icon></button>
+        <button class="elemento_eliminar--btn" onclick="eliminarEgreso(${egreso.id})"><ion-icon name="close-circle-outline" ></ion-icon></button>
       </div> 
     </div>
   </div>`;
-  // onclick="${eliminarEgreso(egreso.id)}
   return egresoHTML
 }
 
@@ -168,7 +136,7 @@ const eliminarEgreso = (id) => {
 // Funcion para agregar dato
 
 const agregarDato = () => {
-  let forma = document.getElementById('forma');
+  // let forma = document.getElementById('forma');
   let tipo = document.getElementById('tipo').value;
   let descripcion= document.getElementById('descripcion').value;
   let valor = document.getElementById('valor').value;
