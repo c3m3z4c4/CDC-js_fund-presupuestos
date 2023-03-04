@@ -256,3 +256,79 @@ h2 {
 .elemento:hover .elemento_eliminar--btn { display: block; }
 .elemento:hover .elemento_valor { transform: translateX(-20px); }
 .elemento:hover .elemento_porcentaje { transform: translateX(-20px); }
+
+
+/* Custom classes */
+
+.bara-msg {
+    padding: 10px;
+    margin: 10px;
+    color: #333;
+    background: #fafafa;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hide{
+    opacity:0;
+} 
+.show{
+    opacity:1;
+} 
+
+  /* Variaciones */
+  
+.info {
+    color: #204a8e;
+    background: #c9ddff;
+    border: 1px solid #4c699b;
+}
+.success {
+    color: #2b7515;
+    background: #ecffd6;
+    border: 1px solid #617c42;
+}
+.warn {
+    color: #756e15;
+    background: #fffbd1;
+    border: 1px solid #87803e;
+}
+.error {
+    color: #ba3939;
+    background: #ffe0e0;
+    border: 1px solid #a33a3a;
+}
+
+/* 
+.show{
+    animation-duration: 3s;
+    animation-name: fadein;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.hidden {
+    animation-duration: 3s;
+    animation-name: fadeout;
+}
+
+@keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+} */

@@ -4,6 +4,8 @@ let ingresos =[];
 
 let egresos = [];
 
+let mensaje = ""
+
 
 const totalIngresos = () => {
 
@@ -44,6 +46,49 @@ const porcentajeFormateado = valor.toLocaleString('es-MX', {
 return porcentajeFormateado
 }
 
+const validarLongCadena = (cadena, nombreCadena) => {
+  if(cadena.length<=2){
+    mensaje="La longitod debe ser al menos de 3 caracteres";
+  }
+  return mensaje;
+}
+
+const validarTipoCadena = (cadena, nombreCadena) => {
+  if(!isNaN(cadena)){
+    mensaje=`Estas agregando numeros al campo`;
+  }else{
+    validarLongCadena(cadena, nombreCadena);
+  }
+  return mensaje;
+}
+
+
+const validarTipoNumero = (numero, nombreNumero) => {
+  if(isNaN(numero)){
+    mensaje=`Debes agregar solo numeros a este campo`;
+    return mensaje;
+  }
+}
+
+
+
+const validarCadena=(cadena, nombreCadena)=>{
+  if(cadena!=""){
+    mensaje=validarTipoCadena(cadena, nombreCadena);
+  }else{
+    mensaje=`El campo ${nombreCadena} es obligatorio`
+  }
+  return mensaje
+}
+
+const validarMoneda=(valor, datoValor)=>{
+  if(valor==0){
+    mensaje=`Debes ingresar un valor mayor a 0`;
+  }else{
+    mensaje=validarTipoNumero(valor, datoValor);
+  }
+  return mensaje
+}
 
 const cargarCabecero = () => {
   let presupuesto = totalIngresos() - totalEgresos();
@@ -66,7 +111,10 @@ const cargarCabecero = () => {
 
   let egress=document.querySelector("#egresos");
   egress.innerHTML=formatoMoneda(totalEgresos());
+
 }
+
+
 
 
 // Funcion creadora del ingreso HTML
@@ -101,7 +149,6 @@ const crearEgresoHTML = (egreso) => {
 // Funcion para cargar ingresos
 const cargarIngresos =()=>{
   let ingresosHTML =new Array()
-  console.log(ingresos)
   for(let i=0; i<ingresos.length; i++){
 
     ingresosHTML.push(crearIngresoHTML(ingresos[i]));
@@ -133,27 +180,43 @@ const eliminarEgreso = (id) => {
   cargarEgresos();
 }       
 
+
+// Funcion de seccion de errores
+
+const errorHandler = (mensaje) => {
+  let alerta = document.querySelector('#notice');
+  alerta.classList.add('show', 'error');
+  alerta.innerHTML=`<span>${mensaje}</span>`
+  setTimeout(()=>{
+    alerta.classList.remove('show', 'error');
+    alerta.classList.add('hide');
+  }, 2000);
+}
+
 // Funcion para agregar dato
 
 const agregarDato = () => {
-  // let forma = document.getElementById('forma');
   let tipo = document.getElementById('tipo').value;
   let descripcion= document.getElementById('descripcion').value;
   let valor = document.getElementById('valor').value;
-  console.log(tipo)
-  if(descripcion!=" " && valor!=0){
-    console.log(tipo)
+  let mensajeCadena=validarCadena(descripcion, "descripcion");
+  let mensajeValor=validarMoneda(valor, "valor");
+  if(!mensajeCadena && !mensajeValor){
       if(tipo=='ingreso'){
-        console.log(`dentro del ciclo ${tipo}`)
         ingresos.push(new Ingreso(descripcion, parseInt(valor, 10)));
         cargarCabecero()
         cargarIngresos()
-      }else if(tipo=='egreso'){
-        console.log(tipo, descripcion, parseInt(valor, 10))
+      }
+      else if(tipo=='egreso'){
         egresos.push(new Egreso(descripcion, parseInt(valor, 10)));
         cargarCabecero()
         cargarEgresos()
       }
+      document.getElementById('descripcion').value="";
+      document.getElementById('valor').value=0;
+  }else{
+    mensajeCadena ? errorHandler(mensajeCadena) : errorHandler(mensajeValor)
+    setTimeout(mensaje="", 1000);
   }
 
 
