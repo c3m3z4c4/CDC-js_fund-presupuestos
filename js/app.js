@@ -216,6 +216,8 @@ const agregarDato = () => {
       document.getElementById('valor').value=0;
   }else{
     mensajeCadena ? errorHandler(mensajeCadena) : errorHandler(mensajeValor)
+    document.getElementById('descripcion').value="";
+    document.getElementById('valor').value=0;
     setTimeout(mensaje="", 1000);
   }
 
