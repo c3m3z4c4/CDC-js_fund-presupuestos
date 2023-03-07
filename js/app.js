@@ -49,6 +49,8 @@ return porcentajeFormateado
 const validarLongCadena = (cadena, nombreCadena) => {
   if(cadena.length<=2){
     mensaje="La longitod debe ser al menos de 3 caracteres";
+  }else if(cadena.length >= 60){
+    mensaje="La longitod debe ser maximo de 60 caracteres";
   }
   return mensaje;
 }
